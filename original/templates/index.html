@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OS Scheduling Visualizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>OS Scheduling Visualizer</h1>
+        <div class="input-section">
+            <h2>Add Process</h2>
+            <input type="text" id="processName" placeholder="Process Name" required>
+            <input type="number" id="arrivalTime" placeholder="Arrival Time" required>
+            <input type="number" id="burstTime" placeholder="Burst Time" required>
+            <input type="number" id="priority" placeholder="Priority (Lower is Higher)" required> <!-- New Priority Input -->
+            <button onclick="addProcess()">Add Process</button>
+            <button onclick="resetProcesses()">Reset</button> <!-- Reset Button -->
+            <button onclick="clearAllData()">Clear All Data</button> <!-- Clear All Button -->
+        </div>
+
+        <div class="button-section">
+            <button onclick="runFCFS()">Run FCFS</button>
+            <button onclick="runSJF()">Run SJF</button> <!-- SJF Button -->
+            <button onclick="runSRTF()">Run SRTF</button> <!-- SRTF Button -->
+            <button onclick="runRR()">Run Round Robin</button>
+            <button onclick="runPriority()">Run Priority Scheduling</button> <!-- Priority Button -->
+        </div>
+
+        <h2>New Process Info</h2>
+        <div id="newProcessInfo"></div> <!-- Section for displaying new process info -->
+
+        <h2>Process Table</h2>
+        <table id="processTable">
+            <thead>
+                <tr>
+                    <th>P ID</th>
+                    <th>Arrival Time</th>
+                    <th>Burst Time</th>
+                    <th>Completion Time</th>
+                    <th>Turnaround Time</th>
+                    <th>Waiting Time</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <h2>Gantt Chart</h2>
+        <div id="ganttChart"></div>
+
+        <h2>Process States</h2>
+        <div id="stateDiagram">
+            <div class="state" id="newState">New</div>
+            <div class="state" id="readyState">Ready</div>
+            <div class="state" id="runningState">Running</div>
+            <div class="state" id="waitingState">Waiting</div>
+            <div class="state" id="terminatedState">Terminated</div>
+        </div>
+
+        <pre id="output"></pre>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <!-- Add this script to handle state updates -->
+    <script>
+        function updateStates(currentProcess) {
+            document.getElementById('newState').style.opacity = currentProcess === 'new' ? '1' : '0.5';
+            document.getElementById('readyState').style.opacity = currentProcess === 'ready' ? '1' : '0.5';
+            document.getElementById('runningState').style.opacity = currentProcess === 'running' ? '1' : '0.5';
+            document.getElementById('waitingState').style.opacity = currentProcess === 'waiting' ? '1' : '0.5';
+            document.getElementById('terminatedState').style.opacity = currentProcess === 'terminated' ? '1' : '0.5';
+        }
+    </script>
+
+    <!-- Add styles for the state diagram -->
+    <style>
+        .state {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 100px; /* Center text vertically */
+            border-radius: 5px;
+        }
+        #newState { background-color: lightblue; }
+        #readyState { background-color: lightgreen; }
+        #runningState { background-color: orange; }
+        #waitingState { background-color: yellow; }
+        #terminatedState { background-color: lightcoral; }
+    </style>
+
+</body>
+</html>

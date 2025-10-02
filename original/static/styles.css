@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Light background for contrast */
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+h1 {
+    text-align: center;
+    color: #333; /* Darker text for contrast */
+}
+
+.input-section,
+.button-section,
+h2 {
+    margin-bottom: 20px;
+}
+
+.input-section {
+    border: 2px solid #4CAF50; /* Green border */
+    padding: 15px; /* Padding inside the section */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #e8f5e9; /* Light green background for input section */
+}
+
+.button-section {
+    border: 2px solid #2196F3; /* Blue border */
+    padding: 15px; /* Padding inside the section */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #e3f2fd; /* Light blue background for button section */
+}
+
+input {
+    width: calc(33% - 10px);
+    padding: 10px;
+    margin-right: 5px;
+    border-radius: 5px; /* Rounded corners for inputs */
+    border: 1px solid #ccc; /* Light border for inputs */
+}
+
+button {
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners for buttons */
+    border: none; /* Remove default border */
+    color: white; /* White text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: transform 0.2s ease, background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Colorful button styles */
+button:nth-child(1) { background-color: #4CAF50; } /* Green */
+button:nth-child(2) { background-color: #2196F3; } /* Blue */
+button:nth-child(3) { background-color: #FF9800; } /* Orange */
+button:nth-child(4) { background-color: #9C27B0; } /* Purple */ 
+button:nth-child(5) { background-color: #FF5722; } /* Red */
+
+button:hover {
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+/* New Process Info styling */
+#newProcessInfo {
+    border: 2px solid #FF9800; /* Orange border for new process info section */
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #fff3e0; /* Light orange background for new process info section */
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    border: 1px solid #ddd; /* Light border for table cells */
+    padding: 8px;
+}
+
+table th {
+    background-color: #4CAF50; /* Header background color */
+    color: white; /* Header text color */
+}
+
+/* Gantt Chart styling */
+#ganttChart {
+   margin-top: 20px; 
+   height: auto; 
+   position: relative; 
+   overflow-x: hidden; /* Hide horizontal scrollbars if necessary */
+   overflow-y:auto;   /* Allow vertical scrolling if needed but keep height fixed*/
+   border-top: 2px solid #4CAF50; /* Border at the top of Gantt chart */
+   padding-top: 10px;
+}
+
+#ganttChart div {
+   position: relative;
+   height: 50px; /* Height for Gantt bars */
+}
+
+/* State Diagram styling */
+#stateDiagram {
+   margin-top: 20px;
+   display: flex;
+   justify-content: space-between;
+}
+
+.state {
+   display: inline-block;
+   width: calc(20% - 10px); /* Make states take equal space with some margin */
+   height: 100px;
+   text-align: center;
+   line-height: 100px; 
+   border-radius: 5px;
+}
